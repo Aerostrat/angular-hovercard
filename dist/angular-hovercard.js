@@ -1,6 +1,6 @@
 /**
  * Angular hovercard directive.
- * @version v1.0.3 - 2015-06-29
+ * @version v1.0.3 - 2016-08-03
  * @link https://github.com/yaru22/angular-hovercard
  * @author Brian Park <yaru22@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -17,6 +17,9 @@ angular.module('yaru22.hovercard', ['yaru22.hovercard.tmpls']).directive('hoverc
       $scope.show = {};
       $scope.show.card = false;
       $scope.hoverTmplUrl = $attrs.hoverTmplUrl;
+      $attrs.$observe('eventData', function (eventData) {
+        $scope.eventData = $scope.$eval(eventData);
+      });
       $scope.onHoverIn = $scope.$eval($attrs.onHoverIn);
       $scope.onHoverOut = $scope.$eval($attrs.onHoverOut);
       var placement = $attrs.placement || 'bottomRight';
@@ -32,8 +35,6 @@ angular.module('yaru22.hovercard', ['yaru22.hovercard.tmpls']).directive('hoverc
         $scope.hoverCardStyle.width = $attrs.width;
       }
       if (placement) {
-        // Split placement string into two words:
-        // e.g. bottomLeft -> ["bottom", "left"]
         var positionStrings = placement.replace(/([A-Z])/g, ' $1').toLowerCase().split(' ');
         var positionObj = {};
         positionObj[positionStrings[0]] = true;
@@ -58,8 +59,8 @@ angular.module('yaru22.hovercard', ['yaru22.hovercard.tmpls']).directive('hoverc
           $scope.hoverCardStyle.left = '-1em';
           $scope.hoverCardStyle.right = '';
         }
-      }  // if (placement)
-    }  // link function
+      }
+    }
   };
 });
 angular.module('yaru22.hovercard.tmpls', []).run([

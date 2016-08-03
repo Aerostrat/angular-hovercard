@@ -3,19 +3,18 @@
     "name": "Brian Park",
     "email": "yaru22@gmail.com"
   },
-  "main":["dist/angular-hovercard.js","dist/angular-hovercard.css"],
+  "main": [
+    "dist/angular-hovercard.js"
+  ],
   "name": "angular-hovercard",
   "description": "Angular 'hovercard' directive.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "homepage": "https://github.com/yaru22/angular-hovercard",
   "repository": {
     "type": "git",
     "url": "git://github.com/yaru22/angular-hovercard.git"
   },
-  "main": [
-    "dist/angular-hovercard.min.js"
-  ],
   "ignore": [
     ".editorconfig",
     ".gitattributes",

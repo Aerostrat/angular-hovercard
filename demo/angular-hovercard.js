@@ -1,6 +1,6 @@
 /**
  * Angular hovercard directive.
- * @version v1.0.3 - 2016-08-03
+ * @version v1.0.3 - 2016-08-04
  * @link https://github.com/yaru22/angular-hovercard
  * @author Brian Park <yaru22@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -14,11 +14,10 @@ angular.module('yaru22.hovercard', ['yaru22.hovercard.tmpls']).directive('hoverc
     templateUrl: 'template/angular-hovercard.tmpl',
     scope: true,
     link: function ($scope, $element, $attrs) {
-      $scope.show = {};
-      $scope.show.card = false;
       $scope.hoverTmplUrl = $attrs.hoverTmplUrl;
       $attrs.$observe('eventData', function (eventData) {
         $scope.eventData = $scope.$eval(eventData);
+        $scope.hoverCardStyle.background = $scope.eventData.color;
       });
       $scope.onHoverIn = $scope.$eval($attrs.onHoverIn);
       $scope.onHoverOut = $scope.$eval($attrs.onHoverOut);
@@ -29,7 +28,6 @@ angular.module('yaru22.hovercard', ['yaru22.hovercard.tmpls']).directive('hoverc
       }
       $scope.hoverCardStyle = {};
       if ($attrs.background) {
-        $scope.hoverCardStyle.background = $attrs.background;
       }
       if ($attrs.width) {
         $scope.hoverCardStyle.width = $attrs.width;
@@ -48,7 +46,7 @@ angular.module('yaru22.hovercard', ['yaru22.hovercard.tmpls']).directive('hoverc
         if (positionObj.top) {
           $scope.hoverCardStyle.bottom = '-1em';
           $scope.hoverCardStyle.top = '';
-          $scope.hoverCardStyle['padding-bottom'] = '3em';
+          $scope.hoverCardStyle['padding-bottom'] = '';
           $scope.hoverCardStyle['padding-top'] = '';
         }
         if (positionObj.left) {

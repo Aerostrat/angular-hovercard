@@ -26,13 +26,6 @@ describe('hovercard', function() {
   }));
 
 
-  it('should create a label', inject(function() {
-    var label = elm.find('.angular-hovercard-label');
-
-    expect(label).to.have.length(1);
-    expect(label.eq(0).text().trim()).to.equal('Brian Park');
-  }));
-
   it('should load template specified on hover-tmpl-url', inject(function() {
     var detail = elm.find('.angular-hovercard-detail');
 

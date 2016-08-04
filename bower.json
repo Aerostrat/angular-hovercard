@@ -31,11 +31,11 @@
     "test/"
   ],
   "dependencies": {
-    "angular": "^1.2.10",
-    "angular-mocks": "^1.2.10"
+    "angular": "^1.2.10"
   },
   "devDependencies": {
     "chai": "1.9.0",
-    "jquery": "2.1.0"
+    "jquery": "2.1.0",
+    "angular-mocks": "^1.2.10"
   }
 }
